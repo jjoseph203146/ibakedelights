@@ -24,8 +24,8 @@ export interface Product {
   priceLabel: string;
   /** e.g. "dozen" for cupcakes — never show a per-cupcake price. */
   unitLabel?: string;
-  /** Local path under /public. Not yet provided by the client — see CLIENT-CHECKLIST.md. */
-  image: string;
+  /** Local path under /public, or null while the client hasn't supplied a photo — see CLIENT-CHECKLIST.md. */
+  image: string | null;
   /** Exact Square product-page URL. null = "Ordering link coming soon". Never guess. */
   squareUrl: string | null;
   featured: boolean;
@@ -123,6 +123,17 @@ const SQUARE_URLS: Record<string, string> = {
   "blueberry-cheesecake": "https://ibakedelights.square.site/product/blueberry-cheesecake/238",
 };
 
+// Slugs with no real photo in public/images/products/ yet. The live Square
+// store has none for these either (confirmed via its catalog API), so they
+// render the "Photo needed" placeholder rather than a broken <img>. Remove a
+// slug here once public/images/products/<slug>.jpg is added.
+const NO_PHOTO = new Set([
+  "german-chocolate-cupcake",
+  "key-lime-cake",
+  "classic-cheesecake",
+  "oreo-cheesecake",
+]);
+
 export const PRODUCTS: Product[] = ROWS.map(
   ([id, slug, name, category, description, priceCents, featured]) => ({
     id,
@@ -133,7 +144,7 @@ export const PRODUCTS: Product[] = ROWS.map(
     priceCents,
     priceLabel: fmt(priceCents),
     unitLabel: category === C ? "dozen" : undefined,
-    image: "/images/products/" + slug + ".jpg",
+    image: NO_PHOTO.has(slug) ? null : "/images/products/" + slug + ".jpg",
     squareUrl: SQUARE_URLS[slug] ?? null,
     featured: !!featured,
   }),
