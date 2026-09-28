@@ -4,7 +4,7 @@ import { PhotoPlaceholder } from "@/components/photo-placeholder";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "iBake Delights is a two-person bakery making homemade desserts from family recipes.",
+  description: "iBake Delights is a homemade dessert bakery making cupcakes, cakes, and cheesecakes from family recipes.",
   alternates: { canonical: "/about" },
 };
 
@@ -33,11 +33,11 @@ export default function AboutPage() {
         <div className="flex flex-col gap-5">
           <p className="m-0 text-sm font-extrabold tracking-[0.14em] text-primary uppercase">Our story</p>
           <h1 className="m-0 font-serif text-[clamp(40px,5vw,58px)] leading-[1.05] font-normal text-balance">
-            Recipes passed down, baked by two.
+            Recipes passed down, baked by hand.
           </h1>
           <p className="m-0 text-lg leading-relaxed">
-            iBake Delights is a two-person bakery making homemade desserts from recipes that have been
-            passed down through our family for generations.
+            iBake Delights is a homemade dessert bakery making cupcakes, cakes, and cheesecakes from
+            recipes that have been passed down through our family for generations.
           </p>
           <p className="m-0 text-lg leading-relaxed text-muted">
             We bake cupcakes, cakes, and cheesecakes for local orders, birthdays, showers, family
