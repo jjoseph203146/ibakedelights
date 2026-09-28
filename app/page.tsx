@@ -46,9 +46,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid min-h-[clamp(380px,48vw,620px)] grid-rows-[minmax(0,1.6fr)_minmax(0,1fr)] gap-5">
+        <div className="grid min-h-[220px] grid-rows-[minmax(0,1fr)] gap-5 sm:min-h-[clamp(380px,48vw,620px)] sm:grid-rows-[minmax(0,1.6fr)_minmax(0,1fr)]">
           <PhotoPlaceholder label="Hero: dessert close-up" alt="Close-up of a homemade cheesecake" className="min-h-0" />
-          <div className="grid min-h-0 grid-cols-2 gap-5">
+          <div className="hidden min-h-0 grid-cols-2 gap-5 sm:grid">
             <PhotoPlaceholder label="Cupcake detail" alt="Frosted cupcakes" />
             <PhotoPlaceholder label="Baking process" alt="Baking in the kitchen" />
           </div>
