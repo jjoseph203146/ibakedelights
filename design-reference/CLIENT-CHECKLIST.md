@@ -14,14 +14,16 @@
 - Event form has all the requested fields plus the "does not confirm an order" notice. The success state repeats that nothing is booked.
 
 ## Still needed from the client
-### Square product URLs (0 of 30 provided)
-The old Square site loads its content with JavaScript, so product links couldn't be read automatically. Paste each link into `SQUARE_URLS` in `products.js`, keyed by slug. Leave any unknown link as `null`, never a guess.
-- Cupcakes: banana-pudding-cupcake, red-velvet-cupcake, carrot-cake-cupcake, key-lime-cupcake, white-chocolate-cupcake, classic-vanilla-cupcake-chocolate-icing, double-chocolate-delight-cupcake, classic-vanilla-cupcake-vanilla-icing, german-chocolate-cupcake, classic-vanilla-cupcake-strawberry-icing, strawberry-cupcake
-- Cakes: carrot-cake, cream-cheese-pound-cake, classic-vanilla-cake-chocolate-icing, double-chocolate-delight-cake, strawberry-cake, red-velvet-cake, peach-pound-cake, key-lime-cake, german-chocolate-cake, white-chocolate-cake
-- Cheesecakes: classic-cheesecake, cinnamon-roll-cheesecake, oreo-cheesecake, pecan-pie-cheesecake, red-velvet-cheesecake, sweet-potato-cheesecake, banana-pudding-cheesecake, peach-cobbler-cheesecake, blueberry-cheesecake
+### Square product URLs (30 of 30 provided)
+Pulled directly from ibakedelights.com's live Square Online store catalog API (the storefront's own products endpoint, not the JS-rendered pages) and verified (HTTP 200) for all 30 slugs. Filled into `SQUARE_URLS` in `products.js`.
 
-### Product images (0 of 30 provided)
-Each product currently shows a "Photo needed: …" placeholder. Save each photo to `/images/products/<slug>.jpg` at a 4:3 ratio. Do not reuse one dessert's photo for another product.
+### Product images (26 of 30 provided)
+Pulled directly from ibakedelights.com's live Square Online store catalog (same API as the Square URLs above) and saved to `public/images/products/<slug>.jpg` in the production app, all real 4:3 photos, one per product.
+Still showing a "Photo needed: …" placeholder because the live store itself has no photo for these (confirmed via the same API — they return the generic Square placeholder, not a product photo). Never substituted another dessert's photo:
+- german-chocolate-cupcake
+- key-lime-cake
+- classic-cheesecake
+- oreo-cheesecake
 
 ### Page photos
 - Home: hero plus two detail photos, and a story photo
