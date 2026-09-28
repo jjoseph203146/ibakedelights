@@ -151,8 +151,8 @@ export default function HomePage() {
               The same recipes, still made by hand.
             </h2>
             <p className="m-0 text-lg leading-relaxed text-muted">
-              Our desserts come from recipes passed down through generations. As a two-person bakery,
-              we bake every order ourselves.
+              Our desserts come from recipes passed down through generations. We bake every order
+              ourselves, from scratch, in small batches.
             </p>
             <Cta href="/about" variant="outline">
               Our Story
