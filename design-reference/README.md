@@ -74,8 +74,8 @@ All pages share SiteHeader at the top and SiteFooter at the bottom. Content max-
 ### SiteHeader (prop `active`: home | menu | events | about | contact)
 - **Sticky top bar:** #FCEEF2, 14px/600, text "Homemade desserts from family recipes · Local orders · (470) 219-8338" (the phone is a `tel:` link).
 - **Main row:** min-height 84px, background #FFF9F5, bottom border #E9C6D0.
-  - **Logo:** a 48px circle (#FCEEF2 fill, 2px #D9829B ring) with "iB" in Young Serif 18px #8E2449, followed by the wordmark "iBake Delights" in Young Serif `clamp(22px,2.4vw,27px)`.
-  - **Nav (≥900px):** Home, Menu, Events, About, Contact. Figtree 16px/600, gap 30px. The active link is #8E2449 with a 2px bottom border and `aria-current="page"`.
+  - **Logo:** a 48px circle (#FCEEF2 fill, 2px #D9829B ring) with "iB" in Young Serif 18px #CC3D66, followed by the wordmark "iBake Delights" in Young Serif `clamp(22px,2.4vw,27px)`.
+  - **Nav (≥900px):** Home, Menu, Events, About, Contact. Figtree 16px/600, gap 30px. The active link is #CC3D66 with a 2px bottom border and `aria-current="page"`.
   - **Order Now:** primary button that links to the Menu page.
 - **Below 900px:** Order Now plus a 48×48 hamburger (`aria-expanded`) that toggles a stacked nav drawer (18px/700 links, 14px vertical padding).
 
@@ -93,7 +93,7 @@ All pages share SiteHeader at the top and SiteFooter at the bottom. Content max-
 - **Image:** 4:3, radius 4px, `alt="Photo of {name}"`. While the image is missing, show a clearly labeled "Photo needed: {name}" placeholder. Never substitute another dessert's photo.
 - **Name:** Young Serif 21px/1.2, #332326.
 - **Price:** Figtree 19px/800. For cupcakes, append " / dozen" in 15px/600 #735F64. Never show a per-cupcake price.
-- **Description:** 15px/1.55 #735F64. If it's longer than 80 characters, clamp it to 2 lines and add a "Full description" / "Show less" text button (`aria-expanded`, 14px/700 #8E2449, underlined).
+- **Description:** 15px/1.55 #735F64. If it's longer than 80 characters, clamp it to 2 lines and add a "Full description" / "Show less" text button (`aria-expanded`, 14px/700 #CC3D66, underlined).
 - **Order button:**
   - With `squareUrl`: `<a target="_blank" rel="noopener noreferrer">` labeled "Order on Square ↗", with `aria-label="Order {name} on Square (opens in a new tab)"`. Primary style, full width.
   - With `squareUrl === null`: a truly `disabled` button reading "Ordering link coming soon". Background #FCEEF2, 1px dashed #D9829B border, text #735F64, `cursor: not-allowed`.
@@ -101,12 +101,12 @@ All pages share SiteHeader at the top and SiteFooter at the bottom. Content max-
 ### ProductCatalog (prop `readHash`)
 - **Filter row:** a `role="group"` of real `<button>`s: All (30), Cupcakes (11), Cakes (10), Cheesecakes (9).
   - Min height 46px, padding 10×18px, radius 4px, 16px/700.
-  - Active: #8E2449 fill, white text, "✓" prefix and `aria-pressed="true"`, so the state isn't shown by color alone.
+  - Active: #CC3D66 fill, white text, "✓" prefix and `aria-pressed="true"`, so the state isn't shown by color alone.
   - Inactive: #FFFEFC fill, #E9C6D0 border.
 - **Live status:** an `aria-live="polite"` line such as "Showing 30 desserts".
 - **Notice box** (white, bordered): "Online orders are securely completed through Square. Product availability and order details are confirmed during checkout."
 - **Groups:** with **All**, products are grouped by category, each group with an H3 (Young Serif `clamp(26px,3vw,32px)` plus "N items") and a bottom border. A single category shows only its own group.
-  - The cupcake group shows the notice **"Cupcake minimum order: one dozen."** (15px/800 #8E2449 on #FCEEF2, 1px #D9829B border).
+  - The cupcake group shows the notice **"Cupcake minimum order: one dozen."** (15px/800 #CC3D66 on #FCEEF2, 1px #D9829B border).
 - **Grid:** `repeat(auto-fill, minmax(min(100%,250px),1fr))`, gap 20px. That's 4 columns at desktop, 3 or 2 on tablet, 1 on phones.
 
 ### EventInquiryForm
@@ -137,8 +137,8 @@ All pages share SiteHeader at the top and SiteFooter at the bottom. Content max-
 - **Filtering:** client-side only, no reload. Menu reads `location.hash` on load and on `hashchange`.
 - **Descriptions:** per-card expand/collapse state.
 - **Header:** mobile nav open/closed state; switches layout at 900px.
-- **Hover:** primary #8E2449 → #701A39. Outline buttons fill #332326 with white text. Dark buttons #332326 → #1F1517.
-- **Focus:** `:focus-visible { outline: 3px solid #8E2449; outline-offset: 3px }` on every interactive element.
+- **Hover:** primary #CC3D66 → #A33152. Outline buttons fill #332326 with white text. Dark buttons #332326 → #1F1517.
+- **Focus:** `:focus-visible { outline: 3px solid #CC3D66; outline-offset: 3px }` on every interactive element.
 - **Motion:** no animations. Smooth scrolling to anchors only, disabled under `prefers-reduced-motion`.
 - **Separate CTAs:** raspberry means buying (Order Now, View Menu, Order on Square). Dark cocoa means event inquiries. Keep the two visually distinct.
 
@@ -176,8 +176,8 @@ type Product = { id: string; slug: string; name: string; category: ProductCatego
 | border | #E9C6D0 | borders and dividers |
 | input-border | #C9A3AF | form inputs |
 | brand-pink | #D9829B | logo ring, notice borders, disabled dashed border (never text) |
-| primary | #8E2449 | primary buttons, links, active states |
-| primary-hover | #701A39 | primary hover |
+| primary | #CC3D66 | primary buttons, links, active states |
+| primary-hover | #A33152 | primary hover |
 | ink | #332326 | body text, event/dark buttons |
 | ink-hover | #1F1517 | dark button hover |
 | muted | #735F64 | secondary text |
@@ -189,7 +189,7 @@ type Product = { id: string; slug: string; name: string; category: ProductCatego
 |---|---|
 | H1 | `clamp(40px,5vw,58–62px)` / 1.05, letter-spacing -0.01em |
 | H2 | `clamp(32px,4vw,46px)` / 1.1 (panel H2 `clamp(28px,3vw,36px)`) |
-| Eyebrow | 14px/800, uppercase, letter-spacing 0.14em, #8E2449 |
+| Eyebrow | 14px/800, uppercase, letter-spacing 0.14em, #CC3D66 |
 | Lead | 17–19px / 1.6 |
 | Body | 16–18px / 1.65–1.7 |
 | Card price | 19px/800 |
