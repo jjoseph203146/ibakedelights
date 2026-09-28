@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+ * iBake Delights design tokens — ported 1:1 from design-reference/README.md
+ * ("Design tokens" section). Keep these in sync with that file; it is the
+ * approved source of truth for color, type, and spacing.
+ */
+@theme {
+  --color-bg: #fff9f5;
+  --color-pink-50: #fceef2;
+  --color-blush: #f7dce4;
+  --color-border: #e9c6d0;
+  --color-input-border: #c9a3af;
+  --color-brand-pink: #d9829b;
+  --color-primary: #8e2449;
+  --color-primary-hover: #701a39;
+  --color-ink: #332326;
+  --color-ink-hover: #1f1517;
+  --color-muted: #735f64;
+  --color-card: #fffefc;
+
+  --font-serif: var(--font-young-serif), Georgia, serif;
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+
+  --container-content: 1240px;
+
+  /* Header/nav breakpoint (design-reference: nav collapses below 900px). */
+  --breakpoint-nav: 900px;
+}
+
+/*
+ * These base rules must live inside Tailwind's `base` layer — CSS cascade
+ * layers give ANY layered rule (e.g. Tailwind's `utilities` layer, which
+ * includes `text-white`, `text-primary`, etc.) priority over an unlayered
+ * rule regardless of specificity. An unlayered `a { color: ... }` here would
+ * silently beat every text-color utility applied to a link/button.
+ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
