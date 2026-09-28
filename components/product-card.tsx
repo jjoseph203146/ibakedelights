@@ -23,7 +23,7 @@ export function ProductCard({ product, level = 3 }: ProductCardProps) {
       <PhotoPlaceholder
         label={`Photo needed: ${product.name}`}
         alt={`Photo of ${product.name}`}
-        src={null}
+        src={product.image}
         className="aspect-[4/3] w-full"
       />
 
