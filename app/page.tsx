@@ -22,7 +22,7 @@ export default function HomePage() {
         aria-labelledby="hero-h"
         className="mx-auto grid max-w-content grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-6 px-4 py-[clamp(24px,4vw,48px)] pb-[clamp(48px,6vw,80px)] sm:px-10"
       >
-        <div className="flex flex-col justify-between gap-9 rounded-md bg-blush px-6 py-8 sm:px-12 sm:py-14">
+        <div className="flex flex-col justify-between gap-9 rounded-lg bg-blush px-6 py-8 sm:px-12 sm:py-14">
           <div className="flex flex-col gap-5">
             <p className="m-0 text-sm font-extrabold tracking-[0.14em] text-primary uppercase">
               Family recipes · Local ordering
@@ -102,7 +102,7 @@ export default function HomePage() {
         aria-labelledby="how-h"
         className="mx-auto grid max-w-content grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-6 px-4 py-[clamp(56px,7vw,88px)] sm:px-10"
       >
-        <div className="flex flex-col items-start gap-[18px] rounded-md border border-border bg-pink-50 p-[clamp(28px,4vw,48px)]">
+        <div className="flex flex-col items-start gap-[18px] rounded-lg border border-border bg-pink-50 p-[clamp(28px,4vw,48px)]">
           <p className="m-0 text-sm font-extrabold tracking-[0.14em] text-primary uppercase">
             Everyday orders
           </p>
@@ -118,7 +118,7 @@ export default function HomePage() {
             Choose a Dessert
           </Cta>
         </div>
-        <div className="flex flex-col items-start gap-[18px] rounded-md bg-blush p-[clamp(28px,4vw,48px)]">
+        <div className="flex flex-col items-start gap-[18px] rounded-lg bg-blush p-[clamp(28px,4vw,48px)]">
           <p className="m-0 text-sm font-extrabold tracking-[0.14em] text-primary uppercase">
             Events &amp; custom orders
           </p>

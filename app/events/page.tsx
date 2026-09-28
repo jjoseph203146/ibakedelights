@@ -39,7 +39,7 @@ export default function EventsPage() {
         aria-labelledby="ev-h"
         className="mx-auto grid max-w-content grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-6 px-4 py-[clamp(24px,4vw,48px)] pb-[clamp(48px,6vw,72px)] sm:px-10"
       >
-        <div className="flex flex-col justify-center gap-[22px] rounded-md bg-blush px-6 py-8 sm:px-12 sm:py-14">
+        <div className="flex flex-col justify-center gap-[22px] rounded-lg bg-blush px-6 py-8 sm:px-12 sm:py-14">
           <p className="m-0 text-sm font-extrabold tracking-[0.14em] text-primary uppercase">
             Events &amp; custom orders
           </p>
@@ -52,7 +52,7 @@ export default function EventsPage() {
           </p>
           <ul aria-label="Occasions" className="m-0 flex list-none flex-wrap gap-2 p-0">
             {OCCASIONS.map((o) => (
-              <li key={o} className="rounded border border-border bg-card px-3.5 py-2.5 text-base font-bold">
+              <li key={o} className="rounded-lg border border-border bg-card px-3.5 py-2.5 text-base font-bold">
                 {o}
               </li>
             ))}
@@ -75,7 +75,7 @@ export default function EventsPage() {
           </h2>
           <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-5 p-0">
             {STEPS.map((s) => (
-              <li key={s.n} className="flex flex-col gap-2 rounded-md border border-border bg-card p-[26px]">
+              <li key={s.n} className="flex flex-col gap-2 rounded-lg border border-border bg-card p-[26px] shadow-soft">
                 <span aria-hidden="true" className="font-serif text-4xl leading-none text-primary">
                   {s.n}
                 </span>

@@ -24,7 +24,7 @@ export default function MenuPage() {
               the dozen.
             </p>
           </div>
-          <div className="flex flex-col gap-2.5 rounded-md border border-border bg-card px-[22px] py-5">
+          <div className="flex flex-col gap-2.5 rounded-lg border border-border bg-card px-[22px] py-5">
             <span className="text-base font-extrabold">Need something for an event?</span>
             <span className="text-[15px] leading-relaxed text-muted">
               Larger quantities and custom requests go through our event inquiry — not the online store.

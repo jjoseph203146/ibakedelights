@@ -48,7 +48,7 @@ export default function AboutPage() {
             bakers are and where the recipes come from. Never invent names or
             dates; remove this placeholder once real copy arrives.
           */}
-          <p className="m-0 rounded border border-dashed border-brand-pink bg-card p-3 font-mono text-[13px] leading-relaxed text-muted">
+          <p className="m-0 rounded-lg border border-dashed border-brand-pink bg-card p-3 font-mono text-[13px] leading-relaxed text-muted">
             CLIENT TO WRITE: 1–2 short paragraphs in your own words — who the two bakers are and where
             the recipes come from.
           </p>
@@ -73,7 +73,7 @@ export default function AboutPage() {
             </h2>
             <dl className="m-0 mt-[22px] grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-[18px]">
               {VALUES.map((v) => (
-                <div key={v.term} className="flex flex-col gap-1.5 rounded-md border border-border bg-card p-[22px]">
+                <div key={v.term} className="flex flex-col gap-1.5 rounded-lg border border-border bg-card p-[22px] shadow-soft">
                   <dt className="text-lg font-extrabold">{v.term}</dt>
                   <dd className="m-0 text-base leading-relaxed text-muted">{v.body}</dd>
                 </div>

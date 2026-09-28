@@ -7,7 +7,7 @@ import { EVENT_TYPES, PRODUCT_INTERESTS, inquirySchema } from "@/lib/validation"
 type Status = "editing" | "sending" | "sent" | "error";
 
 const inputClass =
-  "rounded border border-input-border bg-white px-3 py-3 text-base text-ink";
+  "rounded-lg border border-input-border bg-white px-3 py-3 text-base text-ink";
 const labelClass = "flex flex-col gap-1.5 text-[15px] font-bold";
 const errorClass = "text-sm font-semibold text-primary";
 
@@ -78,7 +78,7 @@ export function InquiryForm() {
     return (
       <div
         id="inquiry"
-        className="rounded-md border border-border bg-card p-[clamp(22px,4vw,40px)] text-ink"
+        className="rounded-lg border border-border bg-card p-[clamp(22px,4vw,40px)] shadow-soft text-ink"
       >
         <div role="status" className="flex flex-col items-start gap-3.5">
           <span className="text-sm font-extrabold tracking-[0.12em] text-primary uppercase">
@@ -94,7 +94,7 @@ export function InquiryForm() {
           <button
             type="button"
             onClick={() => setStatus("editing")}
-            className="cursor-pointer rounded border-2 border-ink bg-transparent px-5 py-3 text-[15px] font-extrabold text-ink"
+            className="cursor-pointer rounded-lg border-2 border-ink bg-transparent px-5 py-3 text-[15px] font-extrabold text-ink"
           >
             Send another inquiry
           </button>
@@ -104,7 +104,7 @@ export function InquiryForm() {
   }
 
   return (
-    <div id="inquiry" className="rounded-md border border-border bg-card p-[clamp(22px,4vw,40px)] text-ink">
+    <div id="inquiry" className="rounded-lg border border-border bg-card p-[clamp(22px,4vw,40px)] shadow-soft text-ink">
       <form
         onSubmit={handleSubmit}
         aria-labelledby={headingId}
@@ -125,7 +125,7 @@ export function InquiryForm() {
         </div>
 
         {status === "error" && (
-          <p role="alert" className="col-span-full m-0 rounded border border-primary bg-pink-50 px-4 py-3 font-semibold text-primary">
+          <p role="alert" className="col-span-full m-0 rounded-lg border border-primary bg-pink-50 px-4 py-3 font-semibold text-primary">
             {errorMessage}
           </p>
         )}
@@ -199,7 +199,7 @@ export function InquiryForm() {
             {PRODUCT_INTERESTS.map((interest) => (
               <label
                 key={interest}
-                className="flex cursor-pointer items-center gap-2 rounded border border-border bg-pink-50 px-3.5 py-2.5 text-base font-semibold"
+                className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-pink-50 px-3.5 py-2.5 text-base font-semibold"
               >
                 <input type="checkbox" name="interest" value={interest} className="h-[18px] w-[18px] accent-primary" />
                 {interest}
@@ -218,7 +218,7 @@ export function InquiryForm() {
           />
         </label>
 
-        <p className="col-span-full m-0 rounded bg-pink-50 px-4 py-3 text-[15px] leading-relaxed font-bold text-ink">
+        <p className="col-span-full m-0 rounded-lg bg-pink-50 px-4 py-3 text-[15px] leading-relaxed font-bold text-ink">
           Submitting this form does not confirm an order. iBake Delights will contact you regarding
           availability, pricing, and payment.
         </p>
@@ -227,7 +227,7 @@ export function InquiryForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="cursor-pointer rounded border-0 bg-ink px-[30px] py-4 text-[17px] font-extrabold text-white hover:bg-ink-hover disabled:cursor-wait disabled:opacity-70"
+            className="cursor-pointer rounded-lg border-0 bg-ink px-[30px] py-4 shadow-soft text-[17px] font-extrabold text-white hover:bg-ink-hover disabled:cursor-wait disabled:opacity-70"
           >
             {status === "sending" ? "Sending…" : "Send Event Inquiry"}
           </button>
