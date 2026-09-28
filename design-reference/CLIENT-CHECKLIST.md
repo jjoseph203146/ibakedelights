@@ -18,7 +18,7 @@
 Pulled directly from ibakedelights.com's live Square Online store catalog API (the storefront's own products endpoint, not the JS-rendered pages) and verified (HTTP 200) for all 30 slugs. Filled into `SQUARE_URLS` in `products.js`.
 
 ### Product images (26 of 30 provided)
-Pulled directly from ibakedelights.com's live Square Online store catalog (same API as the Square URLs above) and saved to `/images/products/<slug>.jpg`, all real 4:3 photos, one per product.
+Pulled directly from ibakedelights.com's live Square Online store catalog (same API as the Square URLs above) and saved to `public/images/products/<slug>.jpg` in the production app, all real 4:3 photos, one per product.
 Still showing a "Photo needed: …" placeholder because the live store itself has no photo for these (confirmed via the same API — they return the generic Square placeholder, not a product photo). Never substituted another dessert's photo:
 - german-chocolate-cupcake
 - key-lime-cake

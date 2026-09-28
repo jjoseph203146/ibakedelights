@@ -89,10 +89,38 @@ const ROWS: ProductRow[] = [
   ["ch-09", "blueberry-cheesecake", "Blueberry Cheesecake", H, "Creamy, light, decadent cheesecake with a blueberry purée swirl and graham cracker crust.", 5500],
 ];
 
-// TODO(client): paste exact Square product-page URLs here, keyed by slug.
-// Leave any unknown link as null — never guess a URL. See CLIENT-CHECKLIST.md.
+// Square product-page URLs, pulled from ibakedelights.com's live Square Online store catalog.
 const SQUARE_URLS: Record<string, string> = {
-  // "sweet-potato-cheesecake": "https://ibakedelights.square.site/product/...",
+  "banana-pudding-cupcake": "https://ibakedelights.square.site/product/banana-pudding-cupcake/31",
+  "red-velvet-cupcake": "https://ibakedelights.square.site/product/red-velvet-cupcake/1",
+  "carrot-cake-cupcake": "https://ibakedelights.square.site/product/carrot-cake-cupcake/6",
+  "key-lime-cupcake": "https://ibakedelights.square.site/product/key-lime-cupcake/2",
+  "white-chocolate-cupcake": "https://ibakedelights.square.site/product/white-chocolate-cupcake/10",
+  "classic-vanilla-cupcake-chocolate-icing": "https://ibakedelights.square.site/product/classic-vanilla-cupcake-chocolate-icing/3",
+  "double-chocolate-delight-cupcake": "https://ibakedelights.square.site/product/double-chocolate-delight-cupcake/12",
+  "classic-vanilla-cupcake-vanilla-icing": "https://ibakedelights.square.site/product/classic-vanilla-cupcake-vanilla-icing/4",
+  "german-chocolate-cupcake": "https://ibakedelights.square.site/product/german-chocolate-cupcake/11",
+  "classic-vanilla-cupcake-strawberry-icing": "https://ibakedelights.square.site/product/classic-vanilla-cupcake-strawberry-icing/5",
+  "strawberry-cupcake": "https://ibakedelights.square.site/product/strawberry-cupcake/13",
+  "carrot-cake": "https://ibakedelights.square.site/product/carrot-cake/15",
+  "cream-cheese-pound-cake": "https://ibakedelights.square.site/product/cream-cheese-pound-cake/9",
+  "classic-vanilla-cake-chocolate-icing": "https://ibakedelights.square.site/product/classic-vanilla-cake-chocolate-icing/19",
+  "double-chocolate-delight-cake": "https://ibakedelights.square.site/product/double-chocolate-delight-cake/20",
+  "strawberry-cake": "https://ibakedelights.square.site/product/strawberry-cake/21",
+  "red-velvet-cake": "https://ibakedelights.square.site/product/red-velvet-cake/14",
+  "peach-pound-cake": "https://ibakedelights.square.site/product/peach-pound-cake/22",
+  "key-lime-cake": "https://ibakedelights.square.site/product/key-lime-cake/16",
+  "german-chocolate-cake": "https://ibakedelights.square.site/product/german-chocolate-cake/18",
+  "white-chocolate-cake": "https://ibakedelights.square.site/product/white-chocolate-cake/17",
+  "classic-cheesecake": "https://ibakedelights.square.site/product/classic-cheesecake/23",
+  "cinnamon-roll-cheesecake": "https://ibakedelights.square.site/product/cinnamon-roll-cheesecake/26",
+  "oreo-cheesecake": "https://ibakedelights.square.site/product/oreo-cheesecake/27",
+  "pecan-pie-cheesecake": "https://ibakedelights.square.site/product/pecan-pie-cheesecake/25",
+  "red-velvet-cheesecake": "https://ibakedelights.square.site/product/red-velvet-cheesecake/28",
+  "sweet-potato-cheesecake": "https://ibakedelights.square.site/product/sweet-potato-cheesecake/24",
+  "banana-pudding-cheesecake": "https://ibakedelights.square.site/product/banana-pudding-cheesecake/40",
+  "peach-cobbler-cheesecake": "https://ibakedelights.square.site/product/peach-cobbler-cheesecake/223",
+  "blueberry-cheesecake": "https://ibakedelights.square.site/product/blueberry-cheesecake/238",
 };
 
 export const PRODUCTS: Product[] = ROWS.map(
