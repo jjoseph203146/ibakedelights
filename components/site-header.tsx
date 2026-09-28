@@ -66,7 +66,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 nav:hidden">
           <Link
             href="/menu"
-            className="rounded bg-primary px-4 py-3 text-[15px] font-extrabold text-white no-underline hover:bg-primary-hover"
+            className="rounded-lg bg-primary px-4 py-3 text-[15px] font-extrabold text-white no-underline shadow-soft-primary hover:bg-primary-hover"
           >
             Order Now
           </Link>

@@ -28,7 +28,7 @@ export function PhotoPlaceholder({
 }: PhotoPlaceholderProps) {
   if (src) {
     return (
-      <div className={`relative overflow-hidden rounded-md bg-pink-50 ${className}`} role="img" aria-label={alt}>
+      <div className={`relative overflow-hidden rounded-lg bg-pink-50 ${className}`} role="img" aria-label={alt}>
         <Image
           src={src}
           alt={alt}
@@ -45,7 +45,7 @@ export function PhotoPlaceholder({
     <div
       role="img"
       aria-label={label}
-      className={`flex items-center justify-center rounded-md border border-dashed border-brand-pink bg-pink-50 p-4 text-center ${className}`}
+      className={`flex items-center justify-center rounded-lg border border-dashed border-brand-pink bg-pink-50 p-4 text-center ${className}`}
     >
       <span className="text-sm font-semibold text-muted">{label}</span>
     </div>

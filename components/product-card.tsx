@@ -19,7 +19,7 @@ export function ProductCard({ product, level = 3 }: ProductCardProps) {
   const Heading = `h${level}` as const;
 
   return (
-    <article className="flex h-full flex-col gap-3 rounded-md border border-border bg-card p-3 pb-[18px]">
+    <article className="flex h-full flex-col gap-3 rounded-lg border border-border bg-card p-3 pb-[18px] shadow-soft">
       <PhotoPlaceholder
         label={`Photo needed: ${product.name}`}
         alt={`Photo of ${product.name}`}
@@ -66,7 +66,7 @@ export function ProductCard({ product, level = 3 }: ProductCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Order ${product.name} on Square (opens in a new tab)`}
-          className="rounded bg-primary p-3.5 text-center text-base font-extrabold text-white no-underline hover:bg-primary-hover"
+          className="rounded-lg bg-primary p-3.5 text-center text-base font-extrabold text-white no-underline shadow-soft-primary hover:bg-primary-hover"
         >
           Order on Square ↗
         </a>
@@ -76,7 +76,7 @@ export function ProductCard({ product, level = 3 }: ProductCardProps) {
           disabled
           aria-disabled="true"
           title="Square link not yet added"
-          className="cursor-not-allowed rounded border border-dashed border-brand-pink bg-pink-50 p-[13px] text-[15px] font-bold text-muted"
+          className="cursor-not-allowed rounded-lg border border-dashed border-brand-pink bg-pink-50 p-[13px] text-[15px] font-bold text-muted"
         >
           Ordering link coming soon
         </button>

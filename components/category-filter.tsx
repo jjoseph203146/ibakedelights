@@ -58,9 +58,9 @@ export function CategoryFilter({ readHash = false, groupHeadingLevel = 3 }: Cate
               type="button"
               onClick={() => setCategory(tab.id)}
               aria-pressed={tab.pressed}
-              className={`flex min-h-[46px] cursor-pointer items-center gap-2 rounded border px-[18px] py-2.5 text-base font-bold ${
+              className={`flex min-h-[46px] cursor-pointer items-center gap-2 rounded-lg border px-[18px] py-2.5 text-base font-bold ${
                 tab.pressed
-                  ? "border-primary bg-primary text-white"
+                  ? "border-primary bg-primary text-white shadow-soft-primary"
                   : "border-border bg-card text-ink"
               }`}
             >
@@ -74,7 +74,7 @@ export function CategoryFilter({ readHash = false, groupHeadingLevel = 3 }: Cate
         </p>
       </div>
 
-      <p className="m-0 rounded border border-border bg-card px-4 py-3 text-[15px] leading-relaxed text-ink">
+      <p className="m-0 rounded-lg border border-border bg-card px-4 py-3 text-[15px] leading-relaxed text-ink">
         Online orders are securely completed through Square. Product availability and order details are
         confirmed during checkout.
       </p>
@@ -94,14 +94,14 @@ export function CategoryFilter({ readHash = false, groupHeadingLevel = 3 }: Cate
                 {group.label} <span className="font-sans text-base font-semibold text-muted">{items.length} items</span>
               </GroupHeading>
               {group.notice && (
-                <p className="m-0 rounded border border-brand-pink bg-pink-50 px-3 py-1.5 text-[15px] font-extrabold text-primary">
+                <p className="m-0 rounded-lg border border-brand-pink bg-pink-50 px-3 py-1.5 text-[15px] font-extrabold text-primary">
                   {group.notice}
                 </p>
               )}
             </div>
 
             {items.length === 0 ? (
-              <p className="m-0 rounded border border-border bg-card px-4 py-6 text-center text-base text-muted">
+              <p className="m-0 rounded-lg border border-border bg-card px-4 py-6 text-center text-base text-muted">
                 No desserts in this category yet — check back soon.
               </p>
             ) : (

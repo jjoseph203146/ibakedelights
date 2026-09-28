@@ -36,7 +36,7 @@ export function MobileNavigation({ links, activeId }: MobileNavigationProps) {
         aria-expanded={open}
         aria-controls={drawerId}
         aria-label="Menu"
-        className="flex h-12 w-12 flex-col items-center justify-center gap-[5px] rounded border border-border bg-card"
+        className="flex h-12 w-12 flex-col items-center justify-center gap-[5px] rounded-lg border border-border bg-card"
       >
         <span className="block h-0.5 w-5 bg-ink" />
         <span className="block h-0.5 w-5 bg-ink" />
