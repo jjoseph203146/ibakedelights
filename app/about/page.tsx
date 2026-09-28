@@ -15,7 +15,7 @@ const VALUES = [
   },
   {
     term: "Homemade",
-    body: "Baked by the two of us — not a factory or a chain.",
+    body: "Baked in small batches — not a factory or a chain.",
   },
   {
     term: "Local",
