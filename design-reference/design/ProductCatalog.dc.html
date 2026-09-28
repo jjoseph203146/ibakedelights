@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<div role="group" aria-label="Filter by category" style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.select }}" aria-pressed="{{ t.pressed }}" style="cursor:pointer;font-weight:700;font-size:16px;min-height:46px;padding:10px 18px;border-radius:4px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};display:flex;align-items:center;gap:8px"><span aria-hidden="true">{{ t.mark }}</span>{{ t.label }} <span style="font-weight:600;opacity:.85">({{ t.count }})</span></button></sc-for>
+</div>
+<p aria-live="polite" style="margin:0;font-size:15px;color:#735F64">{{ status }}</p>
+</div>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#332326;background:#FFFEFC;border:1px solid #E9C6D0;border-radius:4px;padding:12px 16px">Online orders are securely completed through Square. Product availability and order details are confirmed during checkout.</p>
+<sc-for list="{{ groups }}" as="g" hint-placeholder-count="1">
+<section id="{{ g.anchor }}" aria-labelledby="{{ g.hid }}" style="display:flex;flex-direction:column;gap:18px;padding-top:8px">
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 20px;border-bottom:1px solid #E9C6D0;padding-bottom:12px">
+<h3 id="{{ g.hid }}" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(26px,3vw,32px);margin:0;color:#332326">{{ g.title }} <span style="font-family:'Figtree',sans-serif;font-size:16px;font-weight:600;color:#735F64">{{ g.count }} items</span></h3>
+<sc-if value="{{ g.hasNotice }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:15px;font-weight:800;color:#8E2449;background:#FCEEF2;border:1px solid #D9829B;border-radius:4px;padding:6px 12px">{{ g.notice }}</p></sc-if>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:20px">
+<sc-for list="{{ g.items }}" as="p" hint-placeholder-count="4"><dc-import name="ProductCard" product="{{ p }}" level="4" hint-size="100%,470px"></dc-import></sc-for>
+</div>
+</section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1200px&quot;,&quot;height&quot;:&quot;900px&quot;},&quot;readHash&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { cat: 'all', ready: !!window.IBAKE };
+  componentDidMount() {
+    if (!window.IBAKE) this.t = setInterval(() => { if (window.IBAKE) { clearInterval(this.t); this.setState({ ready: true }); } }, 50);
+    if (this.props.readHash) {
+      this.onHash = () => { const h = location.hash.replace('#', ''); if (['all', 'cupcakes', 'cakes', 'cheesecakes'].includes(h)) this.setState({ cat: h }); };
+      this.onHash(); window.addEventListener('hashchange', this.onHash);
+    }
+  }
+  componentWillUnmount() { clearInterval(this.t); if (this.onHash) window.removeEventListener('hashchange', this.onHash); }
+  renderVals() {
+    const D = window.IBAKE; if (!D) return { tabs: [], groups: [], status: 'Loading menu…' };
+    const cat = this.state.cat;
+    const all = [{ id: 'all', label: 'All' }, ...D.CATEGORIES];
+    const tabs = all.map(c => {
+      const on = cat === c.id;
+      return { label: c.label, count: c.id === 'all' ? D.PRODUCTS.length : D.byCategory(c.id).length, pressed: on ? 'true' : 'false', mark: on ? '✓' : '', bg: on ? '#8E2449' : '#FFFEFC', fg: on ? '#fff' : '#332326', bd: on ? '#8E2449' : '#E9C6D0', select: () => this.setState({ cat: c.id }) };
+    });
+    const cats = cat === 'all' ? D.CATEGORIES : D.CATEGORIES.filter(c => c.id === cat);
+    const groups = cats.map(c => { const items = D.byCategory(c.id); return { anchor: 'group-' + c.id, hid: 'h-' + c.id, title: c.label, count: items.length, notice: c.notice, hasNotice: !!c.notice, items }; });
+    const n = groups.reduce((a, g) => a + g.count, 0);
+    return { tabs, groups, status: 'Showing ' + n + (cat === 'all' ? ' desserts' : ' ' + cat) };
+  }
+}
+</script>
+</body>
+</html>

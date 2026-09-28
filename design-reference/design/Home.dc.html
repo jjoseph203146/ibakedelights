@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./products.js"></script>
+<style>
+body{margin:0;background:#FFF9F5;font-family:'Figtree',sans-serif;color:#332326;-webkit-font-smoothing:antialiased}
+a{color:#8E2449}a:hover{color:#701A39}
+:focus-visible{outline:3px solid #8E2449;outline-offset:3px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</helmet>
+<div data-screen-label="Home" style="min-height:100vh;background:#FFF9F5">
+<dc-import name="SiteHeader" active="home" hint-size="100%,122px"></dc-import>
+<main>
+
+<section aria-labelledby="hero-h" style="max-width:1240px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(16px,4vw,40px) clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px">
+<div style="background:#F7DCE4;border-radius:6px;padding:clamp(32px,5vw,56px) clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:space-between;gap:36px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="margin:0;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8E2449">Family recipes · Local ordering</p>
+<h1 id="hero-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(40px,5.2vw,62px);line-height:1.05;margin:0;letter-spacing:-.01em;text-wrap:balance">Desserts made with generations of love.</h1>
+<p style="margin:0;font-size:clamp(17px,1.6vw,19px);line-height:1.6;color:#332326">Homemade cupcakes, cakes, and cheesecakes prepared from family recipes and available for local ordering.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;flex-wrap:wrap;gap:12px"><a href="#menu" style="background:#8E2449;color:#fff;font-weight:800;font-size:17px;padding:17px 30px;border-radius:4px;text-decoration:none" style-hover="background:#701A39;color:#fff">View Menu</a><a href="Events.dc.html" style="border:2px solid #332326;color:#332326;font-weight:800;font-size:17px;padding:15px 26px;border-radius:4px;text-decoration:none" style-hover="background:#332326;color:#fff">Plan an Event</a></div><span style="font-size:14px;color:#332326">Checkout is completed securely on Square.</span></div>
+</div>
+<div style="display:grid;grid-template-rows:minmax(0,1.6fr) minmax(0,1fr);gap:20px;min-height:clamp(380px,48vw,620px)">
+<div role="img" aria-label="Close-up of a homemade cheesecake" style="min-height:0"><image-slot id="home-hero" shape="rounded" radius="6" placeholder="Hero: dessert close-up"></image-slot></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;min-height:0"><div role="img" aria-label="Frosted cupcakes"><image-slot id="home-hero-2" shape="rounded" radius="6" placeholder="Cupcake detail"></image-slot></div><div role="img" aria-label="Baking in the kitchen"><image-slot id="home-hero-3" shape="rounded" radius="6" placeholder="Baking process"></image-slot></div></div>
+</div>
+</section>
+
+<section aria-labelledby="fav-h" style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(56px,7vw,88px);display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px"><div style="display:flex;flex-direction:column;gap:8px"><h2 id="fav-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(32px,4vw,46px);margin:0;line-height:1.1">Customer Favorites</h2><p style="margin:0;font-size:17px;color:#735F64">Four of our most-ordered desserts.</p></div><a href="#menu" style="font-weight:800;font-size:16px">Browse all desserts ↓</a></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:20px">
+<sc-for list="{{ featured }}" as="p" hint-placeholder-count="4"><dc-import name="ProductCard" product="{{ p }}" level="3" hint-size="100%,470px"></dc-import></sc-for>
+</div>
+</section>
+
+<section id="menu" aria-labelledby="menu-h" style="background:#FCEEF2;border-top:1px solid #E9C6D0;border-bottom:1px solid #E9C6D0;scroll-margin-top:120px">
+<div style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,88px) clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px"><h2 id="menu-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(32px,4vw,46px);margin:0;line-height:1.1">Browse All Desserts</h2><p style="margin:0;font-size:17px;color:#735F64">Cupcakes, cakes, and cheesecakes — all made from family recipes.</p></div>
+<dc-import name="ProductCatalog" hint-size="100%,1600px"></dc-import>
+</div>
+</section>
+
+<section aria-labelledby="how-h" style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,88px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px">
+<div style="background:#FCEEF2;border:1px solid #E9C6D0;border-radius:6px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+<p style="margin:0;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8E2449">Everyday orders</p>
+<h2 id="how-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(28px,3vw,36px);margin:0;line-height:1.1">How local ordering works</h2>
+<ol style="margin:0;padding-left:22px;font-size:17px;line-height:1.9"><li>Choose a dessert from the menu</li><li>Complete checkout securely through Square</li><li>Receive local delivery based on availability</li></ol>
+<a href="#menu" style="background:#8E2449;color:#fff;font-weight:800;font-size:17px;padding:16px 28px;border-radius:4px;text-decoration:none;margin-top:auto" style-hover="background:#701A39;color:#fff">Choose a Dessert</a>
+</div>
+<div style="background:#F7DCE4;border-radius:6px;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+<p style="margin:0;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8E2449">Events &amp; custom orders</p>
+<h2 style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(28px,3vw,36px);margin:0;line-height:1.1">Hire us for your next event</h2>
+<p style="margin:0;font-size:17px;line-height:1.65">Birthdays, baby showers, family gatherings, corporate events, and other celebrations. Send an inquiry and we'll follow up about availability and pricing.</p>
+<a href="Events.dc.html#inquiry" style="background:#332326;color:#fff;font-weight:800;font-size:17px;padding:16px 28px;border-radius:4px;text-decoration:none;margin-top:auto" style-hover="background:#1F1517;color:#fff">Request an Event Quote</a>
+</div>
+</section>
+
+<section aria-labelledby="story-h" style="background:#FFFEFC;border-top:1px solid #E9C6D0">
+<div style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,88px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,6vw,80px);align-items:center">
+<div role="img" aria-label="The bakers at work in the kitchen" style="aspect-ratio:5/4"><image-slot id="home-story" shape="rounded" radius="6" placeholder="Kitchen / bakers photo"></image-slot></div>
+<div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+<p style="margin:0;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8E2449">Our family recipes</p>
+<h2 id="story-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(32px,4vw,46px);margin:0;line-height:1.1;text-wrap:balance">The same recipes, still made by hand.</h2>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#735F64">Our desserts come from recipes passed down through generations. As a two-person bakery, we bake every order ourselves.</p>
+<a href="About.dc.html" style="border:2px solid #332326;color:#332326;font-weight:800;font-size:16px;padding:13px 24px;border-radius:4px;text-decoration:none" style-hover="background:#332326;color:#fff">Our Story</a>
+</div>
+</div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,300px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.IBAKE };
+  componentDidMount() { if (!window.IBAKE) this.t = setInterval(() => { if (window.IBAKE) { clearInterval(this.t); this.setState({ ready: true }); } }, 50); }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() { return { featured: window.IBAKE ? window.IBAKE.featured() : [] }; }
+}
+</script>
+</body>
+</html>

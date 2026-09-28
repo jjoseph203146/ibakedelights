@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./products.js"></script>
+<style>
+body{margin:0;background:#FFF9F5;font-family:'Figtree',sans-serif;color:#332326;-webkit-font-smoothing:antialiased}
+a{color:#8E2449}a:hover{color:#701A39}
+:focus-visible{outline:3px solid #8E2449;outline-offset:3px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</helmet>
+<div data-screen-label="Events" style="min-height:100vh;background:#FFF9F5">
+<dc-import name="SiteHeader" active="events" hint-size="100%,122px"></dc-import>
+<main>
+<section aria-labelledby="ev-h" style="max-width:1240px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(16px,4vw,40px) clamp(48px,6vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px">
+<div style="background:#F7DCE4;border-radius:6px;padding:clamp(32px,5vw,56px) clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:22px;justify-content:center">
+<p style="margin:0;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8E2449">Events &amp; custom orders</p>
+<h1 id="ev-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(40px,5vw,58px);line-height:1.05;margin:0;text-wrap:balance">Homemade desserts for your celebration.</h1>
+<p style="margin:0;font-size:18px;line-height:1.65">Tell us about your event and we'll get back to you about availability, pricing, and payment.</p>
+<ul aria-label="Occasions" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px">
+<li style="background:#FFFEFC;border:1px solid #E9C6D0;padding:9px 14px;border-radius:4px;font-size:16px;font-weight:700">Birthdays</li><li style="background:#FFFEFC;border:1px solid #E9C6D0;padding:9px 14px;border-radius:4px;font-size:16px;font-weight:700">Baby showers</li><li style="background:#FFFEFC;border:1px solid #E9C6D0;padding:9px 14px;border-radius:4px;font-size:16px;font-weight:700">Family gatherings</li><li style="background:#FFFEFC;border:1px solid #E9C6D0;padding:9px 14px;border-radius:4px;font-size:16px;font-weight:700">Corporate events</li><li style="background:#FFFEFC;border:1px solid #E9C6D0;padding:9px 14px;border-radius:4px;font-size:16px;font-weight:700">Other celebrations</li>
+</ul>
+<a href="#inquiry" style="align-self:flex-start;background:#332326;color:#fff;font-weight:800;font-size:17px;padding:16px 28px;border-radius:4px;text-decoration:none" style-hover="background:#1F1517;color:#fff">Start an Event Inquiry</a>
+</div>
+<div role="img" aria-label="Dessert table set up for an event" style="min-height:clamp(320px,42vw,560px)"><image-slot id="ev-hero" shape="rounded" radius="6" placeholder="Event dessert table photo"></image-slot></div>
+</section>
+
+<section aria-labelledby="steps-h" style="background:#FCEEF2;border-top:1px solid #E9C6D0;border-bottom:1px solid #E9C6D0">
+<div style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+<h2 id="steps-h" style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(30px,3.6vw,42px);margin:0;line-height:1.1">How event requests work</h2>
+<ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+<li style="background:#FFFEFC;border:1px solid #E9C6D0;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:8px"><span aria-hidden="true" style="font-family:'Young Serif',serif;font-size:36px;color:#8E2449;line-height:1">1</span><h3 style="margin:0;font-size:19px;font-weight:800">Send an inquiry</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#735F64">Share your date, guest count, delivery ZIP code, and the desserts you're interested in.</p></li>
+<li style="background:#FFFEFC;border:1px solid #E9C6D0;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:8px"><span aria-hidden="true" style="font-family:'Young Serif',serif;font-size:36px;color:#8E2449;line-height:1">2</span><h3 style="margin:0;font-size:19px;font-weight:800">We follow up</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#735F64">We'll contact you to discuss availability, options, and pricing.</p></li>
+<li style="background:#FFFEFC;border:1px solid #E9C6D0;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:8px"><span aria-hidden="true" style="font-family:'Young Serif',serif;font-size:36px;color:#8E2449;line-height:1">3</span><h3 style="margin:0;font-size:19px;font-weight:800">Confirm and pay</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#735F64">Your order is confirmed only once we've agreed on details and payment.</p></li>
+</ol>
+<p style="margin:0;font-size:16px;color:#332326">Just need a dozen cupcakes or a single cake? <a href="Menu.dc.html" style="font-weight:800">Order from the menu</a> instead.</p>
+</div>
+</section>
+
+<section aria-label="Event inquiry form" style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:18px;flex:1 1 280px;min-width:0">
+<h2 style="font-family:'Young Serif',serif;font-weight:400;font-size:clamp(28px,3vw,34px);margin:0;line-height:1.15">Questions first?</h2>
+<p style="margin:0;font-size:17px;line-height:1.65;color:#735F64">Call or text us — we're happy to talk through ideas before you send an inquiry.</p>
+<a href="tel:+14702198338" style="font-size:24px;font-weight:800;color:#332326;text-decoration:none">(470) 219-8338</a>
+<a href="mailto:ibakedelights@yahoo.com" style="font-size:17px;font-weight:700">ibakedelights@yahoo.com</a>
+<div role="img" aria-label="Assorted desserts" style="aspect-ratio:4/5;margin-top:8px"><image-slot id="ev-side" shape="rounded" radius="6" placeholder="Assorted desserts photo"></image-slot></div>
+</div>
+<div style="flex:2 1 520px;min-width:0"><dc-import name="EventInquiryForm" hint-size="100%,900px"></dc-import></div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,300px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

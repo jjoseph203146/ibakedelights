@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="background:#FFF9F5;border-bottom:1px solid #E9C6D0;position:sticky;top:0;z-index:20">
+<div style="background:#FCEEF2;border-bottom:1px solid #E9C6D0;font-size:14px;font-weight:600;color:#332326;text-align:center;padding:8px 16px">Homemade desserts from family recipes · Local orders · <a href="tel:+14702198338" style="color:#8E2449;font-weight:800">(470) 219-8338</a></div>
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px);min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<a href="Home.dc.html" aria-label="iBake Delights home" style="display:flex;align-items:center;gap:12px;color:#332326;text-decoration:none;flex-shrink:0"><span style="width:48px;height:48px;border-radius:50%;background:#FCEEF2;border:2px solid #D9829B;box-sizing:border-box;color:#8E2449;display:flex;align-items:center;justify-content:center;font-family:'Young Serif',serif;font-size:18px">iB</span><span style="font-family:'Young Serif',serif;font-size:clamp(22px,2.4vw,27px);line-height:1;white-space:nowrap">iBake Delights</span></a>
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<nav aria-label="Main" style="display:flex;align-items:center;gap:30px;font-size:16px;font-weight:600">
+<sc-for list="{{ links }}" as="l" hint-placeholder-count="5"><a href="{{ l.href }}" aria-current="{{ l.current }}" style="color:{{ l.fg }};text-decoration:none;padding:6px 0;border-bottom:2px solid {{ l.bd }}">{{ l.label }}</a></sc-for>
+</nav>
+<a href="Menu.dc.html" style="background:#8E2449;color:#fff;font-weight:800;font-size:16px;padding:14px 24px;border-radius:4px;text-decoration:none;flex-shrink:0" style-hover="background:#701A39;color:#fff;text-decoration:none">Order Now</a>
+</sc-if>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:8px"><a href="Menu.dc.html" style="background:#8E2449;color:#fff;font-weight:800;font-size:15px;padding:12px 16px;border-radius:4px;text-decoration:none">Order Now</a><button onClick="{{ toggle }}" aria-expanded="{{ open }}" aria-label="Menu" style="width:48px;height:48px;border:1px solid #E9C6D0;background:#FFFEFC;border-radius:4px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer"><span style="width:20px;height:2px;background:#332326"></span><span style="width:20px;height:2px;background:#332326"></span><span style="width:20px;height:2px;background:#332326"></span></button></div>
+</sc-if>
+</div>
+<sc-if value="{{ drawer }}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Main" style="border-top:1px solid #E9C6D0;background:#FFFEFC;display:flex;flex-direction:column;padding:8px clamp(16px,4vw,40px) 16px">
+<sc-for list="{{ links }}" as="l" hint-placeholder-count="5"><a href="{{ l.href }}" aria-current="{{ l.current }}" style="color:{{ l.fg }};font-size:18px;font-weight:700;text-decoration:none;padding:14px 0;border-bottom:1px solid #F3DDE3">{{ l.label }}</a></sc-for>
+</nav>
+</sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1280px&quot;,&quot;height&quot;:&quot;140px&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;menu&quot;,&quot;events&quot;,&quot;about&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;'home'|'menu'|'events'|'about'|'contact'&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280, open: false };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const wide = this.state.w >= 900;
+    const links = [['home', 'Home', 'Home.dc.html'], ['menu', 'Menu', 'Menu.dc.html'], ['events', 'Events', 'Events.dc.html'], ['about', 'About', 'About.dc.html'], ['contact', 'Contact', 'Contact.dc.html']]
+      .map(([id, label, href]) => ({ label, href, current: id === active ? 'page' : undefined, fg: id === active ? '#8E2449' : '#332326', bd: id === active ? '#8E2449' : 'transparent' }));
+    return { links, wide, narrow: !wide, open: this.state.open, drawer: !wide && this.state.open, toggle: () => this.setState(s => ({ open: !s.open })) };
+  }
+}
+</script>
+</body>
+</html>

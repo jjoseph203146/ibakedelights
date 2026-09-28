@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div id="inquiry" style="background:#FFFEFC;border:1px solid #E9C6D0;border-radius:6px;padding:clamp(22px,4vw,40px);color:#332326">
+<sc-if value="{{ editing }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ submit }}" aria-labelledby="inq-h" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px">
+<div style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px">
+<h2 id="inq-h" style="margin:0;font-family:'Young Serif',serif;font-weight:400;font-size:clamp(28px,3.4vw,36px);line-height:1.15">Hire us for your next event</h2>
+<p style="margin:0;font-size:16px;line-height:1.6;color:#735F64">Prefer to talk? Call or text <a href="tel:+14702198338" style="color:#8E2449;font-weight:800">(470) 219-8338</a>.</p>
+</div>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Full name *<input name="name" required="{{ true }}" autocomplete="name" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Email *<input name="email" type="email" required="{{ true }}" autocomplete="email" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Phone number<input name="phone" type="tel" autocomplete="tel" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Event date *<input name="date" type="date" required="{{ true }}" style="font-size:16px;padding:11px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Event type *<select name="type" required="{{ true }}" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"><option value="">Select one</option><option>Birthday</option><option>Baby shower</option><option>Family gathering</option><option>Corporate event</option><option>Wedding or bridal shower</option><option>Other celebration</option></select></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Number of guests<input name="guests" type="number" min="1" inputmode="numeric" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Delivery ZIP code<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326"></label>
+<fieldset style="grid-column:1/-1;border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:10px"><legend style="font-size:15px;font-weight:700;padding:0;margin-bottom:10px">Products of interest</legend>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<label style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;border:1px solid #E9C6D0;background:#FCEEF2;border-radius:4px;padding:10px 14px;cursor:pointer"><input type="checkbox" name="interest" value="Cupcakes" style="width:18px;height:18px;accent-color:#8E2449">Cupcakes</label>
+<label style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;border:1px solid #E9C6D0;background:#FCEEF2;border-radius:4px;padding:10px 14px;cursor:pointer"><input type="checkbox" name="interest" value="Cakes" style="width:18px;height:18px;accent-color:#8E2449">Cakes</label>
+<label style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;border:1px solid #E9C6D0;background:#FCEEF2;border-radius:4px;padding:10px 14px;cursor:pointer"><input type="checkbox" name="interest" value="Cheesecakes" style="width:18px;height:18px;accent-color:#8E2449">Cheesecakes</label>
+<label style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;border:1px solid #E9C6D0;background:#FCEEF2;border-radius:4px;padding:10px 14px;cursor:pointer"><input type="checkbox" name="interest" value="Not sure yet" style="width:18px;height:18px;accent-color:#8E2449">Not sure yet</label>
+</div></fieldset>
+<label style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700">Message<textarea name="message" rows="5" placeholder="Flavors you're considering, quantities, theme, or questions" style="font-size:16px;padding:12px;border:1px solid #C9A3AF;border-radius:4px;background:#fff;color:#332326;resize:vertical;font-family:inherit"></textarea></label>
+<p style="grid-column:1/-1;margin:0;font-size:15px;line-height:1.6;font-weight:700;color:#332326;background:#FCEEF2;border-radius:4px;padding:12px 16px">Submitting this form does not confirm an order. iBake Delights will contact you regarding availability, pricing, and payment.</p>
+<div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px"><button type="submit" style="background:#332326;color:#fff;font-weight:800;font-size:17px;padding:16px 30px;border:0;border-radius:4px;cursor:pointer" style-hover="background:#1F1517">Send Event Inquiry</button><span style="font-size:14px;color:#735F64">* Required · No payment is taken here.</span></div>
+</form>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+<span style="font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8E2449">Inquiry received — not an order</span>
+<h2 style="margin:0;font-family:'Young Serif',serif;font-weight:400;font-size:32px;line-height:1.15">Thank you{{ firstName }}. We'll be in touch.</h2>
+<p style="margin:0;font-size:17px;line-height:1.65;color:#735F64">Your event is not booked yet. iBake Delights will contact you regarding availability, pricing, and payment. Questions in the meantime? Call or text (470) 219-8338.</p>
+<button onClick="{{ reset }}" style="background:none;border:2px solid #332326;color:#332326;font-weight:800;font-size:15px;padding:12px 20px;border-radius:4px;cursor:pointer">Send another inquiry</button>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;820px&quot;,&quot;height&quot;:&quot;900px&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false, name: '' };
+  renderVals() {
+    return {
+      editing: !this.state.sent, sent: this.state.sent,
+      firstName: this.state.name ? ', ' + this.state.name.split(' ')[0] : '',
+      // TODO(dev): POST FormData to the chosen form service / email endpoint.
+      submit: (e) => { e.preventDefault(); const fd = new FormData(e.target); this.setState({ sent: true, name: String(fd.get('name') || '') }); },
+      reset: () => this.setState({ sent: false, name: '' })
+    };
+  }
+}
+</script>
+</body>
+</html>

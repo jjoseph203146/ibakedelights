@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<article style="height:100%;box-sizing:border-box;background:#FFFEFC;border:1px solid #E9C6D0;border-radius:6px;padding:12px 12px 18px;display:flex;flex-direction:column;gap:12px">
+<div role="img" aria-label="{{ alt }}" style="aspect-ratio:4/3;position:relative"><image-slot id="{{ slot }}" shape="rounded" radius="4" placeholder="{{ placeholder }}"></image-slot></div>
+<div style="display:flex;flex-direction:column;gap:8px;padding:0 4px;flex:1">
+<h3 aria-level="{{ level }}" style="font-family:'Young Serif',serif;font-weight:400;font-size:21px;line-height:1.2;margin:0;color:#332326;text-wrap:balance">{{ name }}</h3>
+<div style="font-size:19px;font-weight:800;color:#332326">{{ priceLabel }}<sc-if value="{{ hasUnit }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:600;color:#735F64"> / {{ unitLabel }}</span></sc-if></div>
+<sc-if value="{{ clamped }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:15px;line-height:1.55;color:#735F64;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ description }}</p></sc-if>
+<sc-if value="{{ full }}" hint-placeholder-val="{{ false }}"><p id="{{ descId }}" style="margin:0;font-size:15px;line-height:1.55;color:#735F64">{{ description }}</p></sc-if>
+<sc-if value="{{ long }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggle }}" aria-expanded="{{ open }}" style="align-self:flex-start;background:none;border:0;padding:4px 0;font-size:14px;font-weight:700;color:#8E2449;cursor:pointer;text-decoration:underline;text-underline-offset:3px">{{ toggleLabel }}</button></sc-if>
+</div>
+<sc-if value="{{ hasUrl }}" hint-placeholder-val="{{ true }}"><a href="{{ url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ orderAria }}" style="background:#8E2449;color:#fff;font-weight:800;font-size:16px;padding:14px;border-radius:4px;text-align:center;text-decoration:none" style-hover="background:#701A39;color:#fff;text-decoration:none">Order on Square ↗</a></sc-if>
+<sc-if value="{{ noUrl }}" hint-placeholder-val="{{ false }}"><button disabled="{{ true }}" aria-disabled="true" title="Square link not yet added" style="background:#FCEEF2;color:#735F64;border:1px dashed #D9829B;font-weight:700;font-size:15px;padding:13px;border-radius:4px;cursor:not-allowed">Ordering link coming soon</button></sc-if>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;300px&quot;,&quot;height&quot;:&quot;480px&quot;},&quot;product&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;Product&quot;}}">
+class Component extends DCLogic {
+  state = { open: false };
+  renderVals() {
+    const p = this.props.product || { name: 'Product', slug: 'product', description: '', priceLabel: '', squareUrl: null };
+    const long = (p.description || '').length > 80;
+    const open = this.state.open;
+    return {
+      level: this.props.level ?? '3', name: p.name, priceLabel: p.priceLabel, unitLabel: p.unitLabel, hasUnit: !!p.unitLabel,
+      description: p.description, long, open,
+      clamped: long && !open, full: !long || open, descId: 'desc-' + p.slug,
+      toggle: () => this.setState(s => ({ open: !s.open })),
+      toggleLabel: open ? 'Show less' : 'Full description',
+      slot: 'p-' + p.slug, alt: 'Photo of ' + p.name, placeholder: 'Photo needed: ' + p.name,
+      hasUrl: !!p.squareUrl, noUrl: !p.squareUrl, url: p.squareUrl || undefined,
+      orderAria: 'Order ' + p.name + ' on Square (opens in a new tab)'
+    };
+  }
+}
+</script>
+</body>
+</html>
