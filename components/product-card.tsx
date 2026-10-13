@@ -8,11 +8,13 @@ interface ProductCardProps {
   product: Product;
   /** Heading level for the product name, so pages keep a sane outline. */
   level?: 2 | 3 | 4 | 5 | 6;
+  /** Set for cards visible without scrolling (e.g. homepage favorites) so their photo isn't lazy-loaded. */
+  priority?: boolean;
 }
 
 const DESCRIPTION_CLAMP_THRESHOLD = 80;
 
-export function ProductCard({ product, level = 3 }: ProductCardProps) {
+export function ProductCard({ product, level = 3, priority = false }: ProductCardProps) {
   const [open, setOpen] = useState(false);
   const descId = useId();
   const isLong = product.description.length > DESCRIPTION_CLAMP_THRESHOLD;
@@ -25,6 +27,7 @@ export function ProductCard({ product, level = 3 }: ProductCardProps) {
         alt={`Photo of ${product.name}`}
         src={product.image}
         className="aspect-[4/3] w-full"
+        priority={priority}
       />
 
       <div className="flex flex-1 flex-col gap-2 px-1">
