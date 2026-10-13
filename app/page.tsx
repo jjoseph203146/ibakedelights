@@ -73,7 +73,7 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,250px),1fr))] gap-5">
           {featured.map((product) => (
-            <ProductCard key={product.id} product={product} level={3} />
+            <ProductCard key={product.id} product={product} level={3} priority />
           ))}
         </div>
       </section>
